@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kanker Paru-paru</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='GAN LUNG.png') }}" alt="Logo">
+        </div>
+        <div class="header-text">
+            <h1>Kenapa menggunakan GanLung?</h1>
+            <p>GanLung adalah platform inovatif yang memanfaatkan kekuatan pembelajaran mesin untuk membantu Anda mendeteksi risiko kanker paru-paru secara dini. Kami memahami pentingnya deteksi dini dalam meningkatkan hasil kesehatan, dan kami hadir untuk menyediakan alat yang mudah digunakan bagi siapa saja, tanpa memerlukan pengetahuan medis khusus..</p>
+        </div>
+    </header>
+    <main>
+        <div class="form-container">
+            <form id="prediction-form">
+                <h2>Masukkan Informasi Anda</h2>
+                <div class="form-group">
+                    <label>Jenis Kelamin:</label>
+                    <div class="gender-buttons">
+                        <label>
+                            <input type="radio" name="GENDER" value="1" required>Laki-laki
+                        </label>
+                        <label>
+                            <input type="radio" name="GENDER" value="2" required>Perempuan
+                        </label>
+                    </div>
+                    <p id="gender-info"></p>
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Lahir:</label>
+                    <input type="date" id="birthdate" name="age" max="2024-12-31">
+                    <p id="age-info"></p>
+                </div>
+                <div class="form-group">
+                    <label for="SMOKING">Apakah kamu perokok?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="SMOKING" name="SMOKING">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="YELLOW_FINGERS">Apakah kamu mengalami jari kuning?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="YELLOW_FINGERS" name="YELLOW_FINGERS">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="ANXIETY">Apakah kamu mengalami kecemasan?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="ANXIETY" name="ANXIETY">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="PEER_PRESSURE">Apakah kamu mengalami tekanan dari teman sebaya?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="PEER_PRESSURE" name="PEER_PRESSURE">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="CHRONIC_DISEASE">Apakah kamu memiliki penyakit kronis?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="CHRONIC_DISEASE" name="CHRONIC_DISEASE">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="FATIGUE">Apakah kamu sering merasa lelah?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="FATIGUE" name="FATIGUE">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="ALLERGY">Apakah kamu memiliki alergi?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="ALLERGY" name="ALLERGY">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="WHEEZING">Apakah kamu sering mengalami wheezing?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="WHEEZING" name="WHEEZING">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="ALCOHOL_CONSUMING">Apakah kamu mengonsumsi alkohol?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="ALCOHOL_CONSUMING" name="ALCOHOL_CONSUMING">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="COUGHING">Apakah kamu sering batuk?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="COUGHING" name="COUGHING">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="SHORTNESS_OF_BREATH">Apakah kamu sering merasa sesak napas?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="SHORTNESS_OF_BREATH" name="SHORTNESS_OF_BREATH">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="SWALLOWING_DIFFICULTY">Apakah kamu mengalami kesulitan menelan?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="SWALLOWING_DIFFICULTY" name="SWALLOWING_DIFFICULTY">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="CHEST_PAIN">Apakah kamu mengalami nyeri dada?</label>
+                    <p class="question-details">Umur adalah faktor penting dalam menentukan risiko kanker paru-paru.</p>
+                    <select id="CHEST_PAIN" name="CHEST_PAIN">
+                        <option value="1">Tidak</option>
+                        <option value="2">Ya</option>
+                    </select>
+                    
+                </div>                               
+                <button type="submit">Prediksi</button>
+            </form>
+            <div class="loader" style="display:none;"></div>
+        </div>
+        <div id="result" class="result" style="display:none;">
+            <h2>Hasil Prediksi</h2>
+            <p id="result-text"></p>
+            <button id="restart-btn">Isi Ulang</button>
+            <button id="learn-more-btn">Pelajari Lebih Lanjut</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bla3. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
