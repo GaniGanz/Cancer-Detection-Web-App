@@ -10,3 +10,17 @@
 - Data Handling: The input data includes features such as age, smoking status, anxiety, chest pain, and more, which are processed and used for prediction.
 - Model Evaluation: Multiple machine learning models are trained and evaluated using performance metrics like accuracy, F1 score, precision, and recall.
 - Class Imbalance Handling: The dataset is resampled using upsampling techniques to address class imbalances.
+
+## Dataset
+The dataset used for this project contains various health features and a target variable indicating lung cancer diagnosis. The key features include:
+
+-- GENDER, AGE, SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC_DISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL_CONSUMING, COUGHING, SHORTNESS_OF_BREATH, SWALLOWING_DIFFICULTY, CHEST_PAIN.
+
+## Models Evaluated
+The following machine learning models were trained and evaluated on the dataset:
+
+- Random Forest
+- Gradient Boosting
+- Logistic Regression
+- Support Vector Machine
+Results are visualized and compared across these models based on accuracy, F1 score, precision, recall, and confusion matrices.
